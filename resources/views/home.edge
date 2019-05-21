@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>Gallery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Google web fonts -->
+        <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+
+
+        <!-- The main CSS file -->
+        {{ style('style') }}
+        
+    </head>
+
+    <body>
+
+        <form id="upload" method="post" action="upload" enctype="multipart/form-data">
+            {{ csrfField() }}
+        	<input type="text" id="uploaded_by" name="upload_by" placeholder="Your Name" required="required">
+            <div id="drop">
+                Drop Here
+
+                <a>Browse</a>
+                <input type="file" name="userfile" multiple accept="image/*" />
+            </div>
+
+            <input type="hidden" name="lattitude" id="lattitude">
+            <input type="hidden" name="longitude" id="longitude">
+
+            <ul>
+                <!-- The file uploads will be shown here -->
+            </ul>
+			<div style="text-align: center">
+	            <a href="images">View Images</a>
+	        </div>
+
+        </form>
+
+        <!-- JavaScript Includes -->
+        {{ script('https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js') }}
+        {{ script('js/jquery.knob.js') }}
+
+        <!-- jQuery File Upload Dependencies -->
+        {{ script('js/jquery.ui.widget.js') }}
+        {{ script('js/jquery.iframe-transport.js') }}
+        {{ script('js/jquery.fileupload.js') }}
+
+        <!-- Our main JS file -->
+        {{ script('js/script.js') }}
+
+    </body>
+</html>
